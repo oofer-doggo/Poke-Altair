@@ -54,4 +54,4 @@ switch(args[0]){
 }
 
 
-bot.login(token);
+bot.login(process.env.token);
