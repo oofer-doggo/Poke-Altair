@@ -11,12 +11,54 @@ bot.on('ready', () =>{
     console.log('This bot is online!');
     bot.user.setActivity('With DankDaGamer in VSCode', {type: 'PLAYING'}).catch(console.error);
 })
+
 bot.on('guildMemberAdd', member =>{
     const channel = member.guild.channels.find(channel =>  channel.name === "『⭐』ᴡᴇʟᴄᴏᴍᴇ");
     if(!channel) return;
 
-    channel.send("Welcome to Poké Altair, ${member} , please read <#582746406725615626> and hope you enjoy your stay here!");
+    channel.send('Welcome to Poké Altair, ${member}node , please read <#582746406725615626> and hope you enjoy your stay here!');
 })
+bot.on('message', message => {
+	if(message.content.startsWith('p%kick')) {
+		if(!message.member.hasPermission(['Staff'])) return message.reply('You do not have permission to use this command!')
+		const user = message.mentions.users.first();
+		if(user) {
+			const member = message.guild.member(user);
+			if(member) {
+				member.kick('The user was kicked').then(() => {
+					message.reply(`Successfully kicked ${user.tag}`);
+				  }).catch(err => {
+					  message.reply('The user was not kicked! I cant kick a member with Mods or Admins permissions');
+					  console.error(err);
+			});
+		    } else {
+				message.reply('the user is not in this server');
+			}
+	} else {
+		message.reply('Please mention a user to kick');
+	}
+}
+});
+
+bot.on('message', message => {
+	
+	let args = message.content.substring(PREFIX.length).split(" ");
+	
+	switch(args[0]){	
+		case 'user-info':
+		const USER = new RichEmbed()
+			.setTitle('User Info')
+			.addField('User name', message.author.username)
+			.addField('Current Server', message.guild.name)
+			.addField('Last message', message.member.lastMessage)
+			.addField('Joined discord at', message.author.createdAt)
+			.addField('Joined server', message.member.joinedAt)
+			.addField('User ID', message.member.id)
+		        .setFooter('BOT CREATED BY RONAK (still in development)')
+			.setThumbnail(message.author.avatarURL)
+			.setColor(0x00FF00)
+			message.channel.sendEmbed(USER);
+		break;
 
 
 switch(args[0]){
@@ -44,14 +86,11 @@ switch(args[0]){
         if(!args[1]) return message.reply('Error, please define second argument')
         message.channel.bulkDelete(args[1]);
         break;
-
-    switch(args[0]){
-    case 'help':
+            case 'help':
             message.channel.sendMessage('The Prefix is p%');
             break;
-    
+                
     }
 }
-
-
 bot.login(process.env.token);
+})
