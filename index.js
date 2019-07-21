@@ -14,7 +14,7 @@ bot.on('guildMemberAdd', member =>{
     const channel = member.guild.channels.find(channel =>  channel.name === "『⭐』ᴡᴇʟᴄᴏᴍᴇ");
     if(!channel) return;
 
-    channel.send('Welcome to Poké Altair, ${member}node , please read <#582746406725615626> and hope you enjoy your stay here!');
+    channel.send('Welcome to Poké Altair, ${member} , please read <#582746406725615626> and hope you enjoy your stay here!');
 })
 bot.on('message', message => {
 	if(message.content.startsWith('p%kick')) {
