@@ -20,7 +20,7 @@ bot.on('guildMemberAdd', member =>{
 })
 bot.on('message', message => {
 	if(message.content.startsWith('p%kick')) {
-		if(!message.member.hasPermission(['Staff'])) return message.reply('You do not have permission to use this command!')
+		if(!message.member.hasPermission(['ADMINISTRATOR'])) return message.reply('You do not have permission to use this command!')
 		const user = message.mentions.users.first();
 		if(user) {
 			const member = message.guild.member(user);
@@ -86,9 +86,8 @@ switch(args[0]){
         if(!args[1]) return message.reply('Error, please define second argument')
         message.channel.bulkDelete(args[1]);
         break;
-            case 'help':
-            message.channel.sendMessage('The Prefix is p%');
-            break;
+     case 'help':
+	message.channel.sendMessage('List Of Commands : 1. ping 2. youtube 3. donate 4. info (Prefix is p%) ')
                 
     }
 }
