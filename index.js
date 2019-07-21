@@ -42,7 +42,7 @@ bot.on('message', message => {
 	
 	let args = message.content.substring(PREFIX.length).split(" ");
 	
-	switch(args[0]){	
+switch(args[0]){	
 		case 'user-info':
 		const USER = new RichEmbed()
 			.setTitle('User Info')
@@ -59,7 +59,7 @@ bot.on('message', message => {
 		break;
 
 
-switch(args[0]){
+
     case 'ping':
         
         return message.reply('pong!');
