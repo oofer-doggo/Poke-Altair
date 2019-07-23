@@ -43,7 +43,7 @@ bot.on('message', message => {
 	let args = message.content.substring(PREFIX.length).split(" ");
 	
 switch(args[0]){	
-		case 'user-info':
+		case 'userinfo':
 		const USER = new RichEmbed()
 			.setTitle('User Info')
 			.addField('User name', message.author.username)
