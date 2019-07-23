@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const RichEmbed = require('discord.js');
 const bot = new  Discord.Client();
 
 const PREFIX = 'p%'
