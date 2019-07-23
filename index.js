@@ -14,7 +14,7 @@ bot.on('guildMemberAdd', member =>{
     const channel = member.guild.channels.find(channel =>  channel.name === "『⭐』ᴡᴇʟᴄᴏᴍᴇ");
     if(!channel) return;
 
-    channel.send('Welcome to Poké Altair, ${user}, please read <#582746406725615626> and hope you enjoy your stay here!');
+    channel.send(`Welcome to Poké Altair, ${member}, please read <#582746406725615626> and hope you enjoy your stay here!`);
 })
 bot.on('message', message => {
 	if(message.content.startsWith('p%kick')) {
@@ -44,7 +44,7 @@ bot.on('message', message => {
 	
 switch(args[0]){	
 		case 'user-info':
-		const USER = new RichEmbed()
+		const USER = new Discord RichEmbed()
 			.setTitle('User Info')
 			.addField('User name', message.author.username)
 			.addField('Current Server', message.guild.name)
