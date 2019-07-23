@@ -44,7 +44,7 @@ bot.on('message', message => {
 	
 switch(args[0]){	
 		case 'user-info':
-		const USER = new Discord RichEmbed()
+		const USER = new RichEmbed()
 			.setTitle('User Info')
 			.addField('User name', message.author.username)
 			.addField('Current Server', message.guild.name)
