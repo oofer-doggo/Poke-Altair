@@ -11,7 +11,7 @@ bot.on('ready', () =>{
 })
 
 bot.on('guildMemberAdd', member =>{
-    const channel = member.guild.channels.find(channel =>  channel.name === "『⭐』ᴡᴇʟᴄᴏᴍᴇ");
+    const channel = member.guild.channels.find(channel =>  channel.name === "『⭐』welcome");
     if(!channel) return;
 
     channel.send(`Welcome to Poké Altair, ${member}, please read <#582746406725615626> and hope you enjoy your stay here!`);
